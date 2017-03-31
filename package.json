@@ -1,0 +1,54 @@
+{
+  "name": "metallic-examples",
+  "version": "0.0.0",
+  "description": "Examples Metallic Apps",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib --source-maps inline",
+    "build:watch": "npm run build -- --watch",
+    "coverage": "istanbul cover _mocha lib/test/ -- --recursive",
+    "example": "node lib/example/run",
+    "lint": "standard \"src/**/*.js\" \"test/**/*.js\"",
+    "postversion": "git push && git push --tags",
+    "prepublish": "npm run build",
+    "pretest": "npm run lint",
+    "preversion": "npm test",
+    "test": "NODE_ENV=test mocha --recursive -r babel-register -r source-map-support/register test",
+    "test:watch": "npm run test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CartoDB/metallic-examples.git"
+  },
+  "keywords": [
+    "examples",
+    "apps",
+    "metallic"
+  ],
+  "author": "Daniel García Aubert <dgaubert@carto.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/CartoDB/metallic-examples/issues"
+  },
+  "homepage": "https://github.com/CartoDB/metallic-examples#readme",
+  "dependencies": {
+    "meow": "^3.7.0",
+    "metallic": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "node-fetch": "^1.6.3",
+    "sinon": "^2.1.0",
+    "source-map-support": "^0.4.14",
+    "standard": "^9.0.2"
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  }
+}
