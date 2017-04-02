@@ -1,13 +1,11 @@
 import meow from 'meow'
 import HelloWorld from './hello-world'
-import ClusteredHelloWorld from './clustered-hello-world'
-import Forbidden from './forbidden'
+import Forbidden from './403-forbidden'
 
 const examples = new Map()
 
 examples
   .set('hello-world', HelloWorld)
-  .set('clustered-hello-world', ClusteredHelloWorld)
   .set('forbidden', Forbidden)
 
 const help = `
@@ -31,6 +29,5 @@ const options = {
 
 const flags = meow({ help }, options).flags
 const Example = examples.get(flags.name)
-const example = new Example(flags)
 
-example.start()
+Example.create(flags).start()

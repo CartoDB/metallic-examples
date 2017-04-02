@@ -7,7 +7,7 @@
     "build": "babel src -d lib --source-maps inline",
     "build:watch": "npm run build -- --watch",
     "coverage": "istanbul cover _mocha lib/test/ -- --recursive",
-    "example": "node lib/example/run",
+    "example": "node lib/run",
     "lint": "standard \"src/**/*.js\" \"test/**/*.js\"",
     "postversion": "git push && git push --tags",
     "prepublish": "npm run build",
