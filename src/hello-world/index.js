@@ -5,7 +5,7 @@ export default class HelloWorld {
     const metallic = new Metallic(options)
 
     if (metallic.role === SERVER) {
-      const body = new Buffer('Hello World\n')
+      const body = Buffer.from('Hello World\n')
       const message = body.toString('utf8')
 
       metallic.app.use(ctx => {
