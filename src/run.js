@@ -1,12 +1,14 @@
 import meow from 'meow'
 import HelloWorld from './hello-world'
 import Forbidden from './403-forbidden'
+import Negotiation from './negotiation'
 
 const examples = new Map()
 
 examples
   .set('hello-world', HelloWorld)
   .set('forbidden', Forbidden)
+  .set('negotiation', Negotiation)
 
 const help = `
   Usage:
