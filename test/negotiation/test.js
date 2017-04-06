@@ -13,7 +13,7 @@ describe('metallic conditional middleware example', function () {
   })
 
   afterEach(async function () {
-    await this.conditionalMiddleware.stop()
+    await this.negotiation.stop()
   })
 
   it('GET / should accept json content', async function () {
