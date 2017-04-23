@@ -2,7 +2,7 @@ import assert from 'assert'
 import fetch from 'node-fetch'
 import Negotiation from '../../src/negotiation'
 
-describe('metallic conditional middleware example', function () {
+describe('metallic content middleware example', function () {
   before(function () {
     this.negotiation = Negotiation.create()
   })

@@ -6,8 +6,6 @@ export default class Negotiation {
     const { app, role } = metallic
 
     if (role === SERVER) {
-      app.context.parser = new Parser()
-
       app.use(async (ctx, next) => {
         try {
           await next()
@@ -22,7 +20,7 @@ export default class Negotiation {
           return await next()
         }
 
-        ctx.body = await ctx.parser.json(ctx.query.msg)
+        ctx.body = { msg: ctx.query.msg }
       })
 
       app.use(async (ctx, next) => {
@@ -31,22 +29,12 @@ export default class Negotiation {
         }
 
         ctx.type = 'html'
-        ctx.body = await ctx.parser.html(ctx.query.msg)
+        ctx.body = `<h1>${ctx.query.msg}</h1>`
       })
 
       app.use(ctx => ctx.throw(415))
     }
 
     return metallic
-  }
-}
-
-class Parser {
-  json (msg) {
-    return new Promise(resolve => resolve({ msg }))
-  }
-
-  html (msg) {
-    return new Promise(resolve => resolve(`<h1>${msg}</h1>`))
   }
 }
