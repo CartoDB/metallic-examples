@@ -33,7 +33,7 @@
   "homepage": "https://github.com/CartoDB/metallic-examples#readme",
   "dependencies": {
     "meow": "^3.7.0",
-    "metallic": "^0.2.0"
+    "metallic": "^0.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
