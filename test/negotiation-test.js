@@ -1,6 +1,6 @@
 import assert from 'assert'
 import fetch from 'node-fetch'
-import Negotiation from '../../src/negotiation'
+import { Negotiation } from '../src/'
 
 describe('metallic content middleware example', function () {
   before(function () {
@@ -8,8 +8,13 @@ describe('metallic content middleware example', function () {
   })
 
   beforeEach(async function () {
-    const httpServer = await this.negotiation.start()
-    this.port = httpServer.address().port
+    const httpServersInfo = await this.negotiation.start()
+    for (let pid in httpServersInfo) {
+      if (httpServersInfo.hasOwnProperty(pid)) {
+        this.port = httpServersInfo[pid].port
+        break
+      }
+    }
   })
 
   afterEach(async function () {

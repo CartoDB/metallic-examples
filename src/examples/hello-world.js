@@ -8,9 +8,10 @@ export default class HelloWorld {
       const body = Buffer.from('Hello World\n')
       const message = body.toString('utf8')
 
-      metallic.app.use(ctx => {
+      metallic.app.use(async (ctx, next) => {
         ctx.log.info(message)
-        ctx.metrics.increment('hello_world')
+        await next()
+        // ctx.metrics.increment('hello_world')
         ctx.body = body
       })
     }

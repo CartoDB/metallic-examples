@@ -1,7 +1,7 @@
 import meow from 'meow'
-import HelloWorld from './hello-world'
-import Forbidden from './403-forbidden'
-import Negotiation from './negotiation'
+import HelloWorld from './examples/hello-world'
+import Forbidden from './examples/forbidden'
+import Negotiation from './examples/negotiation'
 
 const examples = new Map()
 
