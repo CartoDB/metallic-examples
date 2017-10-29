@@ -31,7 +31,7 @@ describe('metallic 503 forbidden example', function () {
     assert.equal(res.status, 403)
     assert.equal(res.headers.get('content-type'), 'text/plain; charset=utf-8')
 
-    assert.equal(body, 'Something exploded')
+    assert.equal(body, 'Forbidden')
   })
 
   it('GET / should response with the given x-request-id header', async function () {
