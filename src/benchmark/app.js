@@ -1,6 +1,10 @@
 import meow from 'meow'
 import { HelloWorld, Forbidden, Negotiation } from '../'
 
+if (typeof process.send !== 'function') {
+  throw new Error('This module must be spawned as subprocess with IPC communication channel')
+}
+
 const help = `
 Usage:
   $ npm run benchmark [-- <options>]
@@ -19,21 +23,22 @@ const { name, ...options } = meow({ help }, {
   }
 }).flags
 
-const examples = new Map()
+const AppFactory = new Map()
   .set('hello-world', HelloWorld)
   .set('forbidden', Forbidden)
   .set('negotiation', Negotiation)
+  .get(name)
 
-const AppFactory = examples.get(name)
+if (!AppFactory) {
+  process.send({ error: `Application ${name} not found` })
+}
 
 async function run () {
   const app = AppFactory.create(options)
 
   try {
     const httpServersInfo = await app.start()
-    if (typeof process.send === 'function') {
-      process.send(httpServersInfo)
-    }
+    process.send(httpServersInfo)
   } catch (err) {
     app.logger.error(err)
   }

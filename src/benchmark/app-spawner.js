@@ -18,6 +18,10 @@ export default class AppSpawner {
       this.app.on('disconnect', () => reject(new Error('disconnect')))
       this.app.on('exit', () => reject(new Error('exit')))
       this.app.on('message', httpServersInfo => {
+        if (httpServersInfo.error) {
+          reject(new Error(httpServersInfo.error))
+        }
+
         for (let pid in httpServersInfo) {
           if (httpServersInfo.hasOwnProperty(pid)) {
             return resolve(httpServersInfo[pid].port)
