@@ -3,6 +3,8 @@
 ## v0.3.0 (2017-mm-dd)
 
  - Add benchmarks based on provided examples
+ - Install dep:
+   + babel-register: 6.26.0
  - Update deps:
    + metallic: 0.7.0
    + babel-cli: 6.26.0
