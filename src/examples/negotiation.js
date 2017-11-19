@@ -17,7 +17,7 @@ export default class Negotiation {
 
       app.use(async (ctx, next) => {
         if (!ctx.accepts('json')) {
-          return await next()
+          return next()
         }
 
         ctx.body = { msg: ctx.query.msg }
@@ -25,7 +25,7 @@ export default class Negotiation {
 
       app.use(async (ctx, next) => {
         if (!ctx.accepts('html')) {
-          return await next()
+          return next()
         }
 
         ctx.type = 'html'
