@@ -1,6 +1,6 @@
 # Metallic Examples ChangeLog
 
-## v0.3.0 (2017-mm-dd)
+## v0.3.0 (2017-11-25)
 
  - Add benchmarks based on provided examples
  - Install dep:
