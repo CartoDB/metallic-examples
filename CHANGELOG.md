@@ -6,7 +6,7 @@
  - Install dep:
    + babel-register: 6.26.0
  - Update deps:
-   + metallic: 0.7.0
+   + metallic: 0.9.0
    + babel-cli: 6.26.0
    + babel-plugin-transform-es2015-modules-commonjs: 6.26.0
    + babel-plugin-transform-object-rest-spread: 6.26.0
