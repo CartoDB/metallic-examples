@@ -18,6 +18,9 @@ Examples
 `
 
 const { name, ...options } = meow({ help }, {
+  alias: {
+    n: 'name'
+  },
   default: {
     name: 'hello-world'
   }

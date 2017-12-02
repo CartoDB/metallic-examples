@@ -16,11 +16,13 @@ const help = `
 `
 
 const { release } = meow({ help }, {
+  alias: {
+    r: 'release'
+  },
   boolean: [
     'release'
   ],
   default: {
-    name: 'hello-world',
     release: false
   }
 }).flags
