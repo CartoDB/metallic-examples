@@ -6,7 +6,6 @@ export default class HelloWorld {
 
     if (metallic.role === SERVER) {
       const body = Buffer.from('Hello World\n')
-      const message = body.toString('utf8')
 
       metallic.app.use(async (ctx, next) => {
         await next()
