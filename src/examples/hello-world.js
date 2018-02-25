@@ -9,9 +9,7 @@ export default class HelloWorld {
       const message = body.toString('utf8')
 
       metallic.app.use(async (ctx, next) => {
-        ctx.log.info(message)
         await next()
-        // ctx.metrics.increment('hello_world')
         ctx.body = body
       })
     }
