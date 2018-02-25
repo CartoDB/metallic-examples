@@ -1,5 +1,14 @@
 # Metallic Examples ChangeLog
 
+## v0.4.0 (2018-02-25)
+
+ - Fix benchmark command
+ - Update deps:
+   + metallic: 0.12.0
+ - Update devel deps:
+   + sinon: 4.4.2
+
+
 ## v0.3.0 (2017-11-25)
 
  - Add benchmarks based on provided examples
